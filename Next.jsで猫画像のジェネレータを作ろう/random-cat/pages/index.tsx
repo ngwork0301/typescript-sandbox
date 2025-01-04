@@ -12,7 +12,19 @@ const IndexPage: NextPage = () => {
             setLoading(false);
         });
     }, []);
-    return <div>{loading || <img src={imageUrl} />}</div>;
+    // ボタンをクリックしたときに画像を読み込む処理
+    const handleClick = async () => {
+        setLoading(true);
+        const newImage = await fetchImage();
+        setImageUrl(newImage.url)
+        setLoading(false);
+    }
+    return (
+        <div>
+            <button onClick={handleClick}>他のにゃんこもみる</button>
+            <div>{loading || <img src={imageUrl} />}</div>
+        </div>
+    );
 };
 
 export default IndexPage;
