@@ -10,7 +10,7 @@ function App() {
 
 function LikeButton() {
     const count = 999;
-    return <span>♥ {count}</span>;
+    return <span className={"likeButton"}>♥ {count}</span>;
 }
 
 export default App;
